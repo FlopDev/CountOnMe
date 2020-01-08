@@ -75,24 +75,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        guard let total = calculator.calculate() else {
+        calculator.calculate()
+        
+      //  guard let total = calculator.calculate() else {
             // le calculate ma retouner nil je dois afficher une erreur
-            return
-        }
-
+          //  return
+       // }
+        
         // je display le total dans mon textview
         
       //  guard calculator.expressionIsCorrect else {
          //   return alert(title: "Zero", message: "Entrez une expression correcte")
        // }
-        if textView.text.contains("=") {
-            return alert(title: "Nouveau Calcul", message: "Veuillez démarrer un nouveau calcul")
-        }
+       // if textView.text.contains("=") {
+       //     return alert(title: "Nouveau Calcul", message: "Veuillez démarrer un nouveau calcul")
+      //  }
         // calculator.operation = elements
 
        // calculator.operation.removeAll()
         
-        textView.text.append(" = \(total)")
+       // textView.text.append(" = \(total)")
     }
 }
 

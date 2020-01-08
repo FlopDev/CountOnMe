@@ -12,7 +12,7 @@ class Calculator {
     
     var operators = [String]()
     var numbers = [String]()
-    var number = ""
+    var currentNumber = ""
     var lastThingAdded = ""
     var operationToReturn = ""
     
@@ -37,21 +37,19 @@ class Calculator {
     // fonction add number -> va ajouter  le nombre dans un tableau de nombres (numbers: [String]) [30]
     
     func addNumber(numberTapped: String) {
-        numbers.append(numberTapped)
-        print("numbers\(numbers)")
+        currentNumber.append(numberTapped)
+        print("currentNumber = \(currentNumber)")
     }
     
     // function add operator -> va ajouter les operators dans un tableau de operators (operators: [String]) []
     
     func addOperator(operatorTapped: String) {
+        numbers.append(currentNumber)
+        currentNumber.removeAll()
         operators.append(operatorTapped)
-        print("operators\(operators)")
+        print("operators = \(operators)")
     }
     
-    func tappedEqualButton() {
-        numbers.append(number)
-        print("numbers\(numbers)")
-    }
     
     func getTextToDisplay() -> String {
         // va me donner le texte a afficher dans le textview
@@ -60,8 +58,37 @@ class Calculator {
         return operationToReturn
     }
     
-    func calculate() -> String? {
-        return ""
+    func calculate() {
+        numbers.append(currentNumber)
+        currentNumber.removeAll()
+        print("numbers = \(numbers)")
+        print("operators = \(operators)")
+        
+        let firstNumber = Int(numbers[0])!
+        
+        let firstOperator = operators[0]
+        
+        let secondNumber  = Int(numbers[1])!
+        
+        var calcul = 0
+        
+        while numbers.count > 1 {
+        switch firstOperator {
+        case "×": calcul = firstNumber * secondNumber
+        case "÷": calcul =  firstNumber / secondNumber
+        case "+": calcul = firstNumber + secondNumber
+        case "-": calcul = firstNumber - secondNumber
+        default:
+            break
+        }
+        numbers.remove(at: 0)
+        numbers.remove(at: 0)
+        numbers.insert(String(calcul), at: 0)
+        operators.remove(at: 0)
+        
+        print("numbers = \(numbers)")
+        print("operators = \(operators)")
+        }
     }
 }
 

@@ -64,15 +64,15 @@ class Calculator {
         print("numbers = \(numbers)")
         print("operators = \(operators)")
         
-        let firstNumber = Int(numbers[0])!
         
-        let firstOperator = operators[0]
-        
-        let secondNumber  = Int(numbers[1])!
-        
-        var calcul = 0
         
         while numbers.count > 1 {
+            
+            let firstNumber = Int(numbers[0])!
+            let firstOperator = operators[0]
+            let secondNumber  = Int(numbers[1])!
+            var calcul = 0
+            
         switch firstOperator {
         case "×": calcul = firstNumber * secondNumber
         case "÷": calcul =  firstNumber / secondNumber

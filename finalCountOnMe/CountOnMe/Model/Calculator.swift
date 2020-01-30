@@ -44,8 +44,11 @@ class Calculator {
     // function add operator -> va ajouter les operators dans un tableau de operators (operators: [String]) []
     
     func addOperator(operatorTapped: String) {
-        numbers.append(currentNumber)
-        currentNumber.removeAll()
+        if currentNumber != "" {
+            numbers.append(currentNumber)
+            currentNumber.removeAll()
+        }
+        
         operators.append(operatorTapped)
         print("operators = \(operators)")
     }
@@ -53,41 +56,84 @@ class Calculator {
     
     func getTextToDisplay() -> String {
         // va me donner le texte a afficher dans le textview
-    
-        
         return operationToReturn
     }
     
+    /**
+     
+     [4, 5, 6, 3, 4]
+     [x, +, /, -]
+     
+     index mult : 0
+     numbers[index mult] : 4
+     numbers[index mult+1]: 5
+     4 * 5 = 20
+     remove a l'index : index mult (dans numbers)
+     et encore : index mult (dans numbers)
+     remove a l'index : index mult (dans operators)
+     
+     [ 6, 3, 4]
+     [ +, /, -]
+     
+     
+     ajout resultat a l'index :index mult (dans numbers)
+     
+     [20, 6, 3, 4]
+     [ +, /, -]
+     
+     6 / 3 = 2
+     
+     [20, 4]
+     [ +, -]
+     
+     [22, 4]
+     [ -]
+     
+     [18]]
+     
+     
+     
+     - je cherche ou se trouve la premiere multiplication ou la division dans operators (si y a pas d'index y a pas de priorité de calcul, donc je fais comme avant)
+     - je trouve l'index de l'operateur trouvé
+     - Grace à l'index je dois trouver les chiffres qui vont créer l'operation exemple : je trouve le x a l'index 1 de mon operators, je vais après chercher le nombre qui se trouve a l'index 1 de numbers(3) (au meme index dans numbers que l'operateur dans operators)
+     - Puis je recupere le nombre qui se trouve à l'index suivant dans numbers (2)
+     - J'obtiens donc l'operation 3 x 2
+     - Ensuite, je calcul, j'obtiens 6
+     - Je remoove a l'index 1 et 1 les nombres dans numbers, et à l'index 1 dans operators.
+     - Puis j'ajoute le resultat à numbers à l'index 1
+     */
     func calculate() {
         numbers.append(currentNumber)
         currentNumber.removeAll()
         print("numbers = \(numbers)")
         print("operators = \(operators)")
         
-        
-        
         while numbers.count > 1 {
+            // ça commence ici
+            let indexPrio = 0 // - je cherche ou se trouve la premiere multiplication ou la division dans operators (si y a pas d'index y a pas de priorité de calcul, donc je fais comme avant)
+            operators.firstIndex(of: "×")
             
-            let firstNumber = Int(numbers[0])!
-            let firstOperator = operators[0]
-            let secondNumber  = Int(numbers[1])!
+            let firstNumber = Int(numbers[indexPrio])!
+            let firstOperator = operators[indexPrio]
+            let secondNumber  = Int(numbers[indexPrio + 1])!
             var calcul = 0
             
-        switch firstOperator {
-        case "×": calcul = firstNumber * secondNumber
-        case "÷": calcul =  firstNumber / secondNumber
-        case "+": calcul = firstNumber + secondNumber
-        case "-": calcul = firstNumber - secondNumber
-        default:
-            break
-        }
-        numbers.remove(at: 0)
-        numbers.remove(at: 0)
-        numbers.insert(String(calcul), at: 0)
-        operators.remove(at: 0)
-        
-        print("numbers = \(numbers)")
-        print("operators = \(operators)")
+            switch firstOperator {
+            case "×": calcul = firstNumber * secondNumber
+            case "÷": calcul = firstNumber / secondNumber
+            case "+": calcul = firstNumber + secondNumber
+            case "-": calcul = firstNumber - secondNumber
+            default:
+                break
+            }
+            
+            numbers.remove(at: indexPrio)
+            numbers.remove(at: indexPrio)
+            numbers.insert(String(calcul), at: indexPrio)
+            operators.remove(at: indexPrio)
+            
+            print("numbers = \(numbers)")
+            print("operators = \(operators)")
         }
     }
 }

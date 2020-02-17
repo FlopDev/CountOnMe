@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqK-jh-KKu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqK-jh-KKu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -213,6 +213,17 @@
                                     <constraint firstItem="WCv-mh-kCr" firstAttribute="height" secondItem="isI-Gg-Iye" secondAttribute="height" id="Twj-ic-wz1"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVd-U7-juY">
+                                <rect key="frame" x="170.5" y="316" width="73" height="44"/>
+                                <color key="backgroundColor" red="0.60392156860000001" green="0.57647058819999997" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="AC">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="33n-Rr-sCk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87536688539999996" green="0.84808511389999996" blue="0.83804947389999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -221,7 +232,10 @@
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="height" secondItem="isI-Gg-Iye" secondAttribute="height" multiplier="0.7" id="8cv-vk-ahg"/>
                             <constraint firstItem="uAT-5H-qbk" firstAttribute="trailing" secondItem="T2H-yn-nBB" secondAttribute="trailing" constant="16" id="Jvd-rt-pGO"/>
                             <constraint firstItem="isI-Gg-Iye" firstAttribute="centerX" secondItem="uAT-5H-qbk" secondAttribute="centerX" id="Odf-Tm-rep"/>
+                            <constraint firstItem="uVd-U7-juY" firstAttribute="width" secondItem="T2H-yn-nBB" secondAttribute="width" multiplier="0.191623" id="dPe-tB-9oO"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="centerX" secondItem="uAT-5H-qbk" secondAttribute="centerX" id="dan-pO-6we"/>
+                            <constraint firstItem="uVd-U7-juY" firstAttribute="centerX" secondItem="eIh-hr-C95" secondAttribute="centerX" id="fGQ-35-GZl"/>
+                            <constraint firstItem="isI-Gg-Iye" firstAttribute="top" secondItem="uVd-U7-juY" secondAttribute="bottom" constant="33.5" id="g9a-90-Kc4"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="top" secondItem="uAT-5H-qbk" secondAttribute="top" constant="16" id="iYz-dt-1Ft"/>
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="leading" secondItem="uAT-5H-qbk" secondAttribute="leading" constant="16" id="omW-Xb-7Bn"/>
                             <constraint firstItem="isI-Gg-Iye" firstAttribute="top" secondItem="T2H-yn-nBB" secondAttribute="bottom" constant="18" id="rRk-Ze-up0"/>
@@ -245,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-3c-sJZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86.25" y="219.71830985915494"/>
+            <point key="canvasLocation" x="85.507246376811594" y="219.64285714285714"/>
         </scene>
     </scenes>
 </document>

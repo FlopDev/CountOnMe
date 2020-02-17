@@ -37,8 +37,6 @@ class ViewController: UIViewController {
         }
         calculator.addNumber(numberTapped: numberText) // on envoi au calculator le nombre qui a été tappe pour l'ajouter au calcul
         updateDisplay() // on vient récupérer le texte a afficher dans notre textview
-
-        textView.text.append(numberText)
     }
     
     
@@ -76,6 +74,7 @@ class ViewController: UIViewController {
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         calculator.calculate()
+        updateDisplay()
         
       //  guard let total = calculator.calculate() else {
             // le calculate ma retouner nil je dois afficher une erreur
@@ -95,6 +94,10 @@ class ViewController: UIViewController {
        // calculator.operation.removeAll()
         
        // textView.text.append(" = \(total)")
+    }
+    @IBAction func clearButton(_ sender: Any) {
+        calculator.clearNumbersAndOperators()
+        updateDisplay()
     }
 }
 

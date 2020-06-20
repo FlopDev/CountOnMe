@@ -25,23 +25,22 @@ class CalculateTestCase: XCTestCase {
     }
     
     func testMultiplication() {
-        // Given
+
         let calculator = Calculator()
-        // When
+
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "×")
         calculator.addNumber(numberTapped: "2")
         
         calculator.calculate()
         
-        // Then
         XCTAssert(calculator.operationToReturn == "20")
     }
     
     func testSubstraction() {
-        // Given
+
         let calculator = Calculator()
-        // When
+
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "-")
         calculator.addNumber(numberTapped: "2")
@@ -50,28 +49,27 @@ class CalculateTestCase: XCTestCase {
         
         calculator.calculate()
         
-        // Then
         XCTAssert(calculator.operationToReturn == "8")
     }
     
     func testDivision() {
-        // Given
+ 
         let calculator = Calculator()
-        // When
+
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
         
         calculator.calculate()
         
-        // Then
+
         XCTAssert(calculator.operationToReturn == "5")
     }
     
     func testPriority() {
-        // Given
+  
         let calculator = Calculator()
-        // When
+
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "×")
         calculator.addNumber(numberTapped: "2")
@@ -79,14 +77,13 @@ class CalculateTestCase: XCTestCase {
         calculator.addNumber(numberTapped: "2")
         calculator.calculate()
         
-        // Then
         XCTAssert(calculator.operationToReturn == "10")
     }
     
     func testPriority2() {
-        // Given
+      
         let calculator = Calculator()
-        // When
+        
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
@@ -94,14 +91,13 @@ class CalculateTestCase: XCTestCase {
         calculator.addNumber(numberTapped: "2")
         calculator.calculate()
         
-        // Then
         XCTAssert(calculator.operationToReturn == "10")
     }
     
     func testOperatorAferResult() {
-        // Given
+       
         let calculator = Calculator()
-        // When
+   
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
@@ -117,9 +113,9 @@ class CalculateTestCase: XCTestCase {
     }
     
     func testNumberAferResult() {
-        // Given
+     
         let calculator = Calculator()
-        // When
+    
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
@@ -171,30 +167,28 @@ class CalculateTestCase: XCTestCase {
     }
     
     func testTextToDisplay() {
-        // Given
+ 
         let calculator = Calculator()
-        // When
+  
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
         
         calculator.calculate()
         
-        // Then
         XCTAssert(calculator.getTextToDisplay() == "5")
     }
     
     func testClearAll() {
-        // Given
+     
         let calculator = Calculator()
-        // When
+   
         calculator.addNumber(numberTapped: "10")
         calculator.addOperator(operatorTapped: "÷")
         calculator.addNumber(numberTapped: "2")
         calculator.calculate()
         calculator.clearAll()
         
-
         XCTAssert(calculator.numbers.count == 0)
         XCTAssert(calculator.operationToReturn == "")
         XCTAssert(calculator.currentNumber == "")
